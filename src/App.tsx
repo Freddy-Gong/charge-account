@@ -1,54 +1,51 @@
 import React from 'react';
 import { HashRouter as Router, Switch, Route, Link, Redirect } from 'react-router-dom'
-import styled from 'styled-components';
-import Nav from './components/Nav'
+import Layout from 'components/layout';
 
 
-const Wrapper = styled.div`
-  border:1px solid red;
-  height:100vh;
-  display:flex;
-  flex-direction:column;
-`;
-const Main = styled.div`
-  flex-grow:1;
-`
+
 
 function App() {
   return (
     <Router>
-      <Wrapper>
-        <Main>
-          <Switch>
-            <Route path="/tags">
-              <Tags />
-            </Route>
-            <Route path="/money">
-              <Money />
-            </Route>
-            <Route path="/statistic">
-              <Statistic />
-            </Route>
-            <Redirect exact from="/" to="/money" />
-            <Route path="*">
-              <NoMach />
-            </Route>
-          </Switch>
-        </Main>
-        <Nav />
-      </Wrapper>
+      <Switch>
+        <Route path="/tags">
+          <Tags />
+        </Route>
+        <Route path="/money">
+          <Money />
+        </Route>
+        <Route path="/statistic">
+          <Statistic />
+        </Route>
+        <Redirect exact from="/" to="/money" />
+        <Route path="*">
+          <NoMach />
+        </Route>
+      </Switch>
     </Router>
   );
 }
 
 function Tags() {
-  return <h2>标签</h2>
+  return (<Layout>
+    <h2>标签</h2>
+  </Layout>
+  )
 }
 function Money() {
-  return <h2>记账</h2>
+  return (
+    <Layout>
+      <h2>记账</h2>
+    </Layout>
+  )
 }
 function Statistic() {
-  return <h2>统计</h2>
+  return (
+    <Layout>
+      <h2>统计</h2>
+    </Layout>
+  )
 }
 function NoMach() {
   return <h2>输入路径不存在</h2>

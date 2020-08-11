@@ -14,6 +14,9 @@ const NavWrapper = styled.nav`
       width:33.333%;
       text-align:center;
       padding:16px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
     }
   }
 `;
