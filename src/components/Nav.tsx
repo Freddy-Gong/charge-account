@@ -13,10 +13,12 @@ const NavWrapper = styled.nav`
     > li {
       width:33.333%;
       text-align:center;
-      padding:16px;
-      display:flex;
-      justify-content:center;
-      align-items:center;
+      > a {
+        padding:16px;
+        display:flex;
+        justify-content:center;
+        align-items:center;  
+      }
     }
   }
 `;
@@ -26,16 +28,19 @@ const Nav = () => {
     <NavWrapper>
       <ul>
         <li>
-          <Icon name="tags" />
-          <Link to="/tags">Tags</Link>
+          <Link to="/tags">
+            <Icon name="tags" />
+            Tags</Link>
         </li>
         <li>
-          <Icon name="money" />
-          <Link to="/money">Money</Link>
+          <Link to="/money">
+            <Icon name="money" />
+            Money</Link>
         </li>
         <li>
-          <Icon name="statistic" />
-          <Link to="/statistic">Statistic</Link>
+          <Link to="/statistic">
+            <Icon name="statistic" />
+            Statistic</Link>
         </li>
       </ul>
     </NavWrapper >
