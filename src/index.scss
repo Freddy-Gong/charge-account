@@ -9,11 +9,13 @@ a{
 body{
     font-size: 16px;
     line-height: 1.2;
+    background-color: #eee;
 }
 .icon{
     margin-right: 0.3em;
     width: 1em;
     height: 1em;
+    fill: #999;
 }
 :focus{
     outline: none;

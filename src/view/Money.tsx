@@ -1,6 +1,8 @@
 import React from 'react'
 import Layout from '../components/layout'
 import styled from 'styled-components'
+import Icon from "../components/icon";
+
 
 const TagSection = styled.section`
     flex-grow:1;
@@ -77,25 +79,107 @@ const CategorySection = styled.section`
     }
 `
 const NumberPadSection = styled.section`
-    display:flex;
-    flex-direction:column;
-    > .output{
-        font-size:36px;
-        line-height:72px;
-        text-align:right;
-        padding:0 16px;
-    }
-    > .pad{
-        > button{
-            float:left;
-            width:20%;
-            height:64px;
-            &.OK{
-                height:128px;
-                float:right;
-            }
+
+    .calculator{
+        .result{
+            grid-area: result;
+            text-align: right;
+            line-height: 74px;
+            font-size: 48px;
+            font-family: Helvetica;
+            padding: 0 20px;
+            color: #666;
         }
+        .number-1{
+            grid-area:number-1;
+        }
+        .number-2{
+            grid-area:number-2;
+        }
+        .number-3{
+            grid-area:number-3;
+        }
+        .number-4{
+            grid-area:number-4;
+        }
+        .number-4{
+            grid-area:number-4;
+        }
+        .number-5{
+            grid-area:number-5;
+        }
+        .number-6{
+            grid-area:number-6;
+        }
+        .number-7{
+            grid-area:number-7;
+        }
+        .number-8{
+            grid-area:number-8;
+        }
+        .number-9{
+            grid-area:number-9;
+        }
+        .number-0{
+            grid-area:number-0;
+        }
+        .delete{
+            grid-area:delete;
+        }
+        .add{
+            grid-area:add;
+        }
+        .ac{
+            grid-area:ac;
+        }
+        .divide{
+            grid-area:divide;
+        }
+        .multiply{
+            grid-area:multiply;
+        }
+        .OK{
+            grid-area:OK;
+        }
+        .dot{
+            grid-area:dot;
+        }
+        .equal{
+            grid-area:equal;
+        }
+        .subtract{
+            grid-area:subtract;
+        }
+        display:grid;
+        grid-template-areas: 
+        "result result result result result"
+        "number-7 number-8 number-9 divide ac"
+        "number-4 number-5 number-6 multiply delete"
+        "number-3 number-2 number-1 subtract OK"
+        "number-0 dot equal add  OK";
+        grid-template-columns:repeat(5,20%);
+        grid-template-rows:repeat(5,74px);
+        box-shadow: -8px -8px 16px -10px rgba(255,255,255,1),8px 8px 16px -10px rgba(0, 0, 0, .15);
+        > button {
+            margin: 8px;
+            padding: 0;
+            border: 0;
+            display: block;
+            outline: none;
+            border-radius: 37px;
+            font-size: 24px;
+            font-family: Helvetica;
+            font-weight: normal;
+            color: #999;
+            background: linear-gradient(135deg,rgba(230,230,230,1) 0%,rgba(246,246,246,1) 100%);
+            box-shadow: -4px -4px 10px -8px rgba(255,255,255,1), 4px 4px 10px -8px rgba(0, 0, 0, .3);
+            &:active{
+                box-shadow: -4px -4px 10px -8px rgba(255,255,255,1) inset, 4px 4px 10px -8px rgba(0, 0, 0, .3) inset;
+            }
+        }        
     }
+    
+    
 `
 
 const MyLayout = styled(Layout)`
@@ -128,27 +212,27 @@ function Money() {
                 </ul>
             </CategorySection>
             <NumberPadSection>
-                <div className="output">100</div>
-                <div className="pad">
-                    <button>1</button>
-                    <button>2</button>
-                    <button>3</button>
-                    <button>+</button>
-                    <button>删除</button>
-                    <button>4</button>
-                    <button>5</button>
-                    <button>6</button>
-                    <button>-</button>
-                    <button>清空</button>
-                    <button>7</button>
-                    <button>8</button>
-                    <button>9</button>
-                    <button>*</button>
+                <div className="calculator">
+                    <div className="result">100</div>
+                    <button className="number-1">1</button>
+                    <button className="number-2">2</button>
+                    <button className="number-3">3</button>
+                    <button className="add">+</button>
+                    <button className="delete"><Icon name="delete" /></button>
+                    <button className="number-4">4</button>
+                    <button className="number-5">5</button>
+                    <button className="number-6">6</button>
+                    <button className="subtract">-</button>
+                    <button className="ac">AC</button>
+                    <button className="number-7">7</button>
+                    <button className="number-8">8</button>
+                    <button className="number-9">9</button>
+                    <button className="multiply">*</button>
                     <button className="OK">OK</button>
-                    <button>0</button>
-                    <button>.</button>
-                    <button>=</button>
-                    <button>÷</button>
+                    <button className="number-0">0</button>
+                    <button className="dot">.</button>
+                    <button className="equal">=</button>
+                    <button className="divide">÷</button>
                 </div>
             </NumberPadSection>
         </MyLayout>
