@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Layout from '../components/layout'
 import styled from 'styled-components'
 import TagSection from './Money/TagSection'
@@ -12,9 +12,17 @@ const MyLayout = styled(Layout)`
 `
 
 function Money() {
+    const [obj, setObj] = useState({
+        tags: [] as string[],
+        note: '',
+        category: '-' as ('-' | '+'),
+        amount: 0,
+    })
     return (
         <MyLayout>
-            <TagSection />
+            <TagSection value={obj.tags} onChange={(tags) => setObj({
+                ...obj, tags: tags,
+            })} />
             <NotesSection />
             <CategorySection />
             <NumberPadSection />
