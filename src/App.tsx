@@ -1,5 +1,5 @@
 import React from 'react';
-import { HashRouter as Router, Switch, Route, Link, Redirect } from 'react-router-dom'
+import { HashRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
 import Tags from 'view/Tags'
 import Money from 'view/Money'
 import Statistic from 'view/Statistic'
