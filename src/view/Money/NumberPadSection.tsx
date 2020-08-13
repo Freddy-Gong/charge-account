@@ -32,7 +32,6 @@ const NumberPadSection: React.FC<Props> = (props) => {
             case '7':
             case '8':
             case '9':
-
                 if (result === '0') {
                     setResult(text)
                 } else {
@@ -70,6 +69,7 @@ const NumberPadSection: React.FC<Props> = (props) => {
                 // setResult(parseFloat(eval(equation2).toFixed(9)).toString())
                 let value = parseFloat(result)
                 props.onChange(value)
+                setResult('0')
                 break
         }
     }

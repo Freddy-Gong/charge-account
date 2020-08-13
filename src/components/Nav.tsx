@@ -18,13 +18,18 @@ const NavWrapper = styled.nav`
       &.active{
         box-shadow: -4px -4px 10px -8px rgba(255,255,255,1) inset, 4px 4px 10px -8px rgba(0, 0, 0, .3) inset;
       }
-      > a {font-family: Helvetica;
+      > a {
+        font-family: Helvetica;
         font-weight: normal;
         color: #999;
         padding:16px;
         display:flex;
         justify-content:center;
         align-items:center;
+        &.selected{
+          box-shadow: -4px -4px 10px -8px rgba(255,255,255,1) inset, 4px 4px 10px -8px rgba(0, 0, 0, .3) inset;
+          border-radius:37px;
+        }
         }  
       }
     }
@@ -32,33 +37,22 @@ const NavWrapper = styled.nav`
 `;
 
 const Nav = () => {
-  const [selected, setSelected] = useState<string>('')
-
   return (
     <NavWrapper>
       <ul >
-        <li className={selected === 'Tags' ? 'active' : ''} onClick={() => {
-          setSelected('Tags');
-          console.log(selected);
-        }}>
-          <NavLink to="/tags" onClick={() => console.log('Tags a标签')}>
+        <li
+        >
+          <NavLink to="/tags" activeClassName="selected">
             <Icon name="tags" />
             Tags</NavLink>
         </li >
-        <li className={selected === 'Money' ? 'active' : ''} onClick={() => {
-          setSelected('Money')
-          console.log(selected);
-        }}>
-          <NavLink to="/money" onClick={() => console.log('Money a标签')}>
+        <li>
+          <NavLink to="/money" activeClassName="selected">
             <Icon name="money" />
             Money</NavLink>
         </li>
-        <li className={selected === 'Statistic' ? 'active' : ''}
-          onClick={() => {
-            setSelected('Statistic')
-            console.log(selected);
-          }}>
-          <NavLink to="/statistic" onClick={() => console.log('Statistic a标签')}>
+        <li >
+          <NavLink to="/statistic" activeClassName="selected">
             <Icon name="statistic" />
             Statistic</NavLink>
         </li>
