@@ -12,32 +12,26 @@ const MyLayout = styled(Layout)`
 `
 
 function Money() {
-    const [obj, setObj] = useState({
+    const [selected, setSelected] = useState({
         tags: [] as string[],
         note: '',
         category: '-' as ('-' | '+'),
         amount: 0,
     })
+
+    const onChange = (obj: Partial<typeof selected>) => {
+        setSelected({
+            ...selected,
+            ...obj
+        })
+    }
     return (
         <MyLayout>
-            {obj.amount}
-            <TagSection value={obj.tags} onChange={(tags) => setObj({
-                ...obj, tags: tags,
-            })} />
-            <NotesSection value={obj.note} onChange={(note) => {
-                setObj({
-                    ...obj,
-                    note: note
-                })
-            }} />
-            <CategorySection value={obj.category} onChange={(category) => setObj({
-                ...obj,
-                category: category
-            })} />
-            <NumberPadSection value={obj.amount} onChange={(amount) => setObj({
-                ...obj,
-                amount: amount
-            })} />
+            {selected.amount}
+            <TagSection value={selected.tags} onChange={(tags) => onChange({ tags })} />
+            <NotesSection value={selected.note} onChange={(note) => onChange({ note })} />
+            <CategorySection value={selected.category} onChange={(category) => onChange({ category })} />
+            <NumberPadSection value={selected.amount} onChange={(amount) => onChange({ amount })} />
         </MyLayout>
     )
 }
