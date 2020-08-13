@@ -2,13 +2,14 @@ import styled from 'styled-components'
 import React, { useRef } from 'react'
 
 const Wrapper = styled.section`
-    background:rgb(245,244,246);
+    background: linear-gradient(135deg,rgba(230,230,230,1) 0%,rgba(246,246,246,1) 100%);
     padding:10px 16px;
     font-size:14px;
     > label {
         display:flex;
         align-items:center;
         > span {
+            color:#999;
             white-space:nowrap;
             margin-right:16px;
         }
@@ -17,7 +18,7 @@ const Wrapper = styled.section`
             width:100%;
             height:56px;
             border:none;
-            background:rgb(245,244,246);
+            background: linear-gradient(135deg,rgba(230,230,230,1) 0%,rgba(246,246,246,1) 100%);
 
         }
     }

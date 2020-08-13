@@ -32,6 +32,7 @@ const NumberPadSection: React.FC<Props> = (props) => {
             case '7':
             case '8':
             case '9':
+
                 if (result === '0') {
                     setResult(text)
                 } else {
@@ -41,6 +42,7 @@ const NumberPadSection: React.FC<Props> = (props) => {
                 break
             case 'AC':
                 setResult('0')
+                setDoc(true)
                 break
             case '.':
                 if (doc === true) {
@@ -64,13 +66,11 @@ const NumberPadSection: React.FC<Props> = (props) => {
                 setResult(parseFloat(eval(equation1).toFixed(9)).toString())
                 break
             case 'OK':
-                let equation2 = result.replace(new RegExp('x', 'g'), '*').replace(new RegExp('÷', 'g'), '/')
-                setResult(parseFloat(eval(equation2).toFixed(9)).toString())
-                setTimeout(() => {
-                    let value = parseFloat(result)
-                    props.onChange(value)
-                }, 0)
-
+                // let equation2 = result.replace(new RegExp('x', 'g'), '*').replace(new RegExp('÷', 'g'), '/')
+                // setResult(parseFloat(eval(equation2).toFixed(9)).toString())
+                let value = parseFloat(result)
+                props.onChange(value)
+                break
         }
     }
     return (

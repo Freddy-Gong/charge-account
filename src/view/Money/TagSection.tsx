@@ -11,16 +11,20 @@ const Wrapper = styled.section`
         margin-left:5px;
         display:flex;
         > li {
+            font-family: Helvetica;
+            font-weight: normal;
+            color: #999;
             padding:3px 0px;
             display:flex;
             justify-content:center;
             align-items:center;
             min-width:3em;
-            background:grey;
+            background: linear-gradient(135deg,rgba(230,230,230,1) 0%,rgba(246,246,246,1) 100%);
+            box-shadow: -4px -4px 10px -8px rgba(255,255,255,1), 4px 4px 10px -8px rgba(0, 0, 0, .3);
             margin:3px 12px;
             border-radius:12px;
             &.selected{
-                color:red;
+                box-shadow: -4px -4px 10px -8px rgba(255,255,255,1) inset, 4px 4px 10px -8px rgba(0, 0, 0, .3) inset;
             }
         }
     }

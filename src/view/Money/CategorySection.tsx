@@ -4,22 +4,21 @@ import React, { useState } from 'react'
 const Wrapper = styled.section`
     > ul {
         display:flex;
-        background:rgb(196,195,197);
         > li {
+            font-family: Helvetica;
+            font-weight: normal;
+            color: #999;
+            margin: 0 16px;
+            border-radius:37px;
             display:flex;
             justify-content:center;
             width:50%;
             padding:16px 0px;
             position:relative;
-            &.selected::after{
-                content:'';
-                display:block;
-                height:3px;
-                background:black;
-                position:absolute;
-                bottom:0;
-                width:100%;
-                left:0;
+            background: linear-gradient(135deg,rgba(230,230,230,1) 0%,rgba(246,246,246,1) 100%);
+            box-shadow: -4px -4px 10px -8px rgba(255,255,255,1), 4px 4px 10px -8px rgba(0, 0, 0, .3);
+            &.selected{
+                box-shadow: -4px -4px 10px -8px rgba(255,255,255,1) inset, 4px 4px 10px -8px rgba(0, 0, 0, .3) inset;
             }
         }
     }
