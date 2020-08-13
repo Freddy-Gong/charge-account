@@ -4,7 +4,6 @@ import { NavLink } from "react-router-dom";
 import Icon from "./icon";
 
 
-
 const NavWrapper = styled.nav`
   line-height:24px;
   > ul {
@@ -39,24 +38,27 @@ const Nav = () => {
     <NavWrapper>
       <ul >
         <li className={selected === 'Tags' ? 'active' : ''} onClick={() => {
-          setSelected('Tags')
+          setSelected('Tags');
+          console.log(selected);
         }}>
-          <NavLink to="/tags" >
+          <NavLink to="/tags" onClick={() => console.log('Tags a标签')}>
             <Icon name="tags" />
             Tags</NavLink>
         </li >
         <li className={selected === 'Money' ? 'active' : ''} onClick={() => {
           setSelected('Money')
+          console.log(selected);
         }}>
-          <NavLink to="/money" >
+          <NavLink to="/money" onClick={() => console.log('Money a标签')}>
             <Icon name="money" />
             Money</NavLink>
         </li>
         <li className={selected === 'Statistic' ? 'active' : ''}
           onClick={() => {
             setSelected('Statistic')
+            console.log(selected);
           }}>
-          <NavLink to="/statistic" >
+          <NavLink to="/statistic" onClick={() => console.log('Statistic a标签')}>
             <Icon name="statistic" />
             Statistic</NavLink>
         </li>

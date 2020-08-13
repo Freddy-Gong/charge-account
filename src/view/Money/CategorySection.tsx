@@ -38,11 +38,11 @@ const CategorySection: React.FC<Props> = (props) => {
             <ul>
                 {categoryList.map(c =>
                     <li className={category === c ? 'selected' : ''}
-                        onClick={() => props.onChange(c)} key={c}
+                        onClick={() => { props.onChange(c) }} key={c}
                     >{categoryMap[c]}</li>
                 )}
             </ul>
-        </Wrapper>
+        </Wrapper >
     )
 }
 
