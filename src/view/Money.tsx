@@ -20,12 +20,24 @@ function Money() {
     })
     return (
         <MyLayout>
+            {obj.amount}
             <TagSection value={obj.tags} onChange={(tags) => setObj({
                 ...obj, tags: tags,
             })} />
-            <NotesSection />
-            <CategorySection />
-            <NumberPadSection />
+            <NotesSection value={obj.note} onChange={(note) => {
+                setObj({
+                    ...obj,
+                    note: note
+                })
+            }} />
+            <CategorySection value={obj.category} onChange={(category) => setObj({
+                ...obj,
+                category: category
+            })} />
+            <NumberPadSection value={obj.amount} onChange={(amount) => setObj({
+                ...obj,
+                amount: amount
+            })} />
         </MyLayout>
     )
 }

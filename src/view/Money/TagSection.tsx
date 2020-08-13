@@ -35,7 +35,7 @@ const Wrapper = styled.section`
     }
 `
 
-type Props = { value: string[]; onChange: (selected: string[]) => void }
+type Props = { value: string[]; onChange: (value: string[]) => void }
 //类型参数
 const TagSection: React.FC<Props> = (props) => {
     const [tags, setTags] = useState<string[]>(['衣', '食', '住', '行'])

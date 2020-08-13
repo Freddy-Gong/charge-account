@@ -2,10 +2,13 @@ import React, { useState } from 'react'
 import Icon from "components/icon"
 import Wrapper from './NumberPadSection/Wrapper'
 
+type Props = {
+    value: number,
+    onChange: (value: number) => void
+}
 
-
-const NumberPadSection: React.FC = () => {
-    const [result, setResult] = useState<string>('0')
+const NumberPadSection: React.FC<Props> = (props) => {
+    const [result, setResult] = useState(props.value.toString())
     const [Operator, setOperator] = useState<boolean>(false)
     const [doc, setDoc] = useState<boolean>(true)
     const deleteButton = () => {
@@ -59,6 +62,10 @@ const NumberPadSection: React.FC = () => {
             case '=':
                 let equation = result.replace(new RegExp('x', 'g'), '*').replace(new RegExp('÷', 'g'), '/')
                 setResult(parseFloat(eval(equation).toFixed(9)).toString())
+                break
+            case 'OK':
+                let value = parseFloat(result)
+                props.onChange(value)
         }
     }
     return (
