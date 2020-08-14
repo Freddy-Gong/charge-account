@@ -4,6 +4,8 @@ import { useParams } from 'react-router-dom'
 import Layout from 'components/layout'
 import styled from 'styled-components'
 import Icon from 'components/icon'
+import { Input } from 'components/Input'
+
 type Params = {
     id: string
 }
@@ -43,23 +45,6 @@ const Name = styled.div`
     border-radius:20px;
     background: linear-gradient(135deg,rgba(230,230,230,1) 0%,rgba(246,246,246,1) 100%);
     box-shadow: -4px -4px 10px -8px rgba(255,255,255,1), 4px 4px 10px -8px rgba(0, 0, 0, .3);
-    > label {
-        display:flex;
-        align-item:center;
-        > span {
-            margin-right:8px;
-            white-space:nowrap;
-        }
-        > input {
-            display:block;
-            width:100%;
-            border:none;
-            background: linear-gradient(135deg,rgba(230,230,230,1) 0%,rgba(246,246,246,1) 100%);
-            font-size: 24px;
-            font-family: Helvetica;
-            font-weight: normal;
-            color: #999;
-        }
     }
 `
 const Space = styled.div`
@@ -79,10 +64,7 @@ const Tag: React.FC = () => {
                 <Icon name='' />
             </TopBar>
             <Name>
-                <label>
-                    <span>标签名</span>
-                    <input type="text" placeholder={tag.name} />
-                </label>
+                <Input label="标签名" value={tag.name} />
             </Name>
             <Space />
             <Button>删除标签</Button>
