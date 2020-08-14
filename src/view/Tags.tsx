@@ -47,12 +47,12 @@ const Space = styled.div`
 `
 
 function Tags() {
-    const { tags, setTags } = useTags()
+    const { tags } = useTags()
     return (<Layout>
         <Wrapper>
-            {tags.map((tag) => <li key={tag}>
+            {tags.map((tag) => <li key={tag.id}>
                 <Link to={'/tags/' + tag}>
-                    <span className="oneLine">{tag} </span><Icon name="right" />
+                    <span className="oneLine">{tag.name} </span><Icon name="right" />
                 </Link>
             </li>)}
         </Wrapper>
