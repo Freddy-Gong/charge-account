@@ -21,8 +21,7 @@ const Label = styled.label`
         font-size: 16px;
         font-family: Helvetica;
         font-weight: normal;
-    color:#999;
-
+        color:#999;
     }
 `
 

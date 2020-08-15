@@ -50,12 +50,17 @@ const Name = styled.div`
 const Space = styled.div`
     height:32px;
 `
+const Center = styled.div`
+    display:flex;
+    justify-content:center;
+    align-item:center;
+`
 
 const Tag: React.FC = () => {
-    const { findTag } = useTags()
-    let { id } = useParams<Params>()
+    const { findTag, updateTag } = useTags()
+    let { id: idString } = useParams<Params>()
 
-    const tag = findTag(parseInt(id))
+    const tag = findTag(parseInt(idString))
     return (
         <Layout>
             <TopBar>
@@ -64,10 +69,12 @@ const Tag: React.FC = () => {
                 <Icon name='' />
             </TopBar>
             <Name>
-                <Input label="标签名" value={tag.name} />
+                <Input label="标签名" value={tag.name} onChange={(e) => updateTag(tag.id, { name: e.target.value })} />
             </Name>
             <Space />
-            <Button>删除标签</Button>
+            <Center>
+                <Button>删除标签</Button>
+            </Center>
         </Layout>
     )
 }

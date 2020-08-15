@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import React, { useRef, ChangeEventHandler } from 'react'
+import React, { ChangeEventHandler } from 'react'
 import { Input } from 'components/Input'
 
 const Wrapper = styled.section`
@@ -35,7 +35,6 @@ type Props = {
 const NotesSection: React.FC<Props> = (props) => {
 
     const note = props.value
-    const refInput = useRef<HTMLInputElement>(null)
     const onBlur: ChangeEventHandler<HTMLInputElement> = (e) => {
         props.onChange(e.target.value)
     }
