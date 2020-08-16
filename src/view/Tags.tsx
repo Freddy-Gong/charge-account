@@ -47,7 +47,7 @@ const Space = styled.div`
 `
 
 function Tags() {
-    const { tags } = useTags()
+    const { tags, addTag } = useTags()
     return (<Layout>
         <Wrapper>
             {tags.map((tag) => <li key={tag.id}>
@@ -59,7 +59,7 @@ function Tags() {
         <Center>
             <Space />
             <Space />
-            <Button >新增标签</Button>
+            <Button onClick={addTag}>新增标签</Button>
         </Center>
     </Layout>
     )

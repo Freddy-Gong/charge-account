@@ -44,14 +44,9 @@ const Wrapper = styled.section`
 type Props = { value: number[]; onChange: (value: number[]) => void }
 //类型参数
 const TagSection: React.FC<Props> = (props) => {
-    const { tags, setTags } = useTags()
+    const { tags, addTag } = useTags()
     const selectedTagIds = props.value
-    const AddTag = () => {
-        const tagName = window.prompt('新标签的名称为')
-        if (tagName !== null) {
-            setTags([...tags, { id: createId(), name: tagName }])
-        }
-    }
+
     const onToggleTags = (tagId: number) => {
         if (selectedTagIds.indexOf(tagId) >= 0) {
             props.onChange(selectedTagIds.filter(t => t !== tagId))
@@ -69,7 +64,7 @@ const TagSection: React.FC<Props> = (props) => {
                         className={getClassName(tag.id)}>{tag.name}</li>//注意onClick和className两个函数的方式
                 )}
             </ul>
-            <button onClick={AddTag}>新增标签</button>
+            <button onClick={addTag}>新增标签</button>
         </Wrapper>
     )
 }
