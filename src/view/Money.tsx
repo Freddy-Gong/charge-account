@@ -32,9 +32,10 @@ function Money() {
     const { records, addRecords } = useRecords()
     console.log(records)
     const submit = () => {
-        addRecords(selected)
-        alert('保存成功')
-        setSelected(defaultFormDate)
+        if (addRecords(selected) === true) {
+            alert('保存成功')
+            setSelected(defaultFormDate)
+        }
     }
     return (
         <MyLayout>
