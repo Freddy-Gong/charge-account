@@ -5,6 +5,7 @@ import Wrapper from './NumberPadSection/Wrapper'
 type Props = {
     value: number,
     onChange: (value: number) => void
+    onOk: () => void
 }
 
 const NumberPadSection: React.FC<Props> = (props) => {
@@ -69,7 +70,7 @@ const NumberPadSection: React.FC<Props> = (props) => {
                 // setResult(parseFloat(eval(equation2).toFixed(9)).toString())
                 let value = parseFloat(result)
                 props.onChange(value)
-                setResult('0')
+                props.onOk()
                 break
         }
     }
