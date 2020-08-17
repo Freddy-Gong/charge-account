@@ -29,8 +29,7 @@ function Money() {
             ...obj
         })
     }
-    const { records, addRecords } = useRecords()
-    console.log(records)
+    const { addRecords } = useRecords()
     const submit = () => {
         if (addRecords(selected) === true) {
             alert('保存成功')

@@ -9,9 +9,21 @@ type Props = {
 }
 
 const NumberPadSection: React.FC<Props> = (props) => {
-    const [result, setResult] = useState(props.value.toString())
+    const [result, _setResult] = useState(props.value.toString())
     const [Operator, setOperator] = useState<boolean>(false)
     const [doc, setDoc] = useState<boolean>(true)
+    const setResult = (result: string) => {
+        let newResult: string
+        if (result.length > 16) {
+            newResult = result.slice(0, 16)
+        } else if (result.length === 0) {
+            newResult = '0'
+        } else {
+            newResult = result
+        }
+        _setResult(newResult)
+        props.onChange(parseFloat(newResult))
+    }
     const deleteButton = () => {
         if (result.length === 1) {
             setResult('0')
@@ -68,8 +80,8 @@ const NumberPadSection: React.FC<Props> = (props) => {
             case 'OK':
                 // let equation2 = result.replace(new RegExp('x', 'g'), '*').replace(new RegExp('÷', 'g'), '/')
                 // setResult(parseFloat(eval(equation2).toFixed(9)).toString())
-                let value = parseFloat(result)
-                props.onChange(value)
+                // let value = parseFloat(result)
+                // props.onChange(value)
                 props.onOk()
                 break
         }
