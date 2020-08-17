@@ -4,7 +4,11 @@ import React, { useState } from 'react'
 const Wrapper = styled.section`
     > ul {
         display:flex;
-        background: linear-gradient(135deg,rgba(230,230,230,1) 0%,rgba(246,246,246,1) 100%);
+        background: inherit;
+        font-size: 24px;
+        font-family: Helvetica;
+        font-weight: normal;
+        color: #999;
         > li {
             font-family: Helvetica;
             font-weight: normal;
