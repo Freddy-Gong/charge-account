@@ -33,6 +33,10 @@ const NumberPadSection: React.FC<Props> = (props) => {
     }
     const calculate = (e: React.MouseEvent) => {
         const text = (e.target as HTMLButtonElement).textContent
+        const evil = (fn: string) => {
+            let Fn = Function;  //一个变量指向Function，防止有些前端编译工具报错
+            return new Fn("return " + fn)();
+        }
         if (text === null) { return }
         switch (text) {
             case '0':
@@ -75,7 +79,7 @@ const NumberPadSection: React.FC<Props> = (props) => {
                 break
             case '=':
                 let equation1 = result.replace(new RegExp('x', 'g'), '*').replace(new RegExp('÷', 'g'), '/')
-                setResult(parseFloat(eval(equation1).toFixed(9)).toString())
+                setResult(parseFloat(evil(equation1).toFixed(9)).toString())
                 break
             case 'OK':
                 // let equation2 = result.replace(new RegExp('x', 'g'), '*').replace(new RegExp('÷', 'g'), '/')
@@ -83,6 +87,7 @@ const NumberPadSection: React.FC<Props> = (props) => {
                 // let value = parseFloat(result)
                 // props.onChange(value)
                 props.onOk()
+                setResult('0')
                 break
         }
     }

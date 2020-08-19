@@ -1,6 +1,6 @@
 import { useRef, useEffect } from 'react'
 
-const useUpdate = (fn: () => void, deps: any[]) => {
+const useUpdate = (fn: () => void, dependence: any[]) => {
     const count = useRef(0)
     useEffect(() => {
         count.current += 1
@@ -9,7 +9,7 @@ const useUpdate = (fn: () => void, deps: any[]) => {
         if (count.current > 1) {
             fn()
         }
-    }, deps)
+    }, [fn, dependence])
 }
 
 export { useUpdate }

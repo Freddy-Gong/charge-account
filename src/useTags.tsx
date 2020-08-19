@@ -16,7 +16,7 @@ const useTags = () => { // 封装一个自定义Hook
     }, [])
     useUpdate(() => {
         window.localStorage.setItem('tags', JSON.stringify(tags))
-    }, [tags])
+    }, tags)
     //数据不可变，一定要是一个新的对象数组
     const findTag = (id: number) => tags.filter(tag => tag.id === id)[0]
     const findTagIndex = (id: number) => {
