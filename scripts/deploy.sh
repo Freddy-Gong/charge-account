@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+yarn build &&
+cd build &&
+git init &&
+ga . &&
+git commit -m 'deploy' &&
+git remote add origin git@github.com:Freddy-Gong/charge-account-webst.git &&
+git push -u origin master -f && 
+cd -

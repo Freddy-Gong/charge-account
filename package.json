@@ -1,5 +1,6 @@
 {
   "name": "charge-account-1",
+  "homepage": "https://freddy-gong.github.io/charge-account-webst/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
